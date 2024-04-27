@@ -16,7 +16,7 @@ def register():
             db.session.add(user)
             db.session.commit()
             flash('Congratulations, you are now a registered user!')
-            return redirect(url_for('login'))
+            return redirect(url_for('account.login'))
         flash('Username already exists!')
     return render_template('register.html', title='Register', form=form)
 
@@ -28,6 +28,6 @@ def login():
         flash('Login requested for user {}, remember_me={}'.format(
             form.email.data, form.remember_me.data))
         return redirect(url_for('blog.posts'))
-    return render_template('login.html', title='Sign In', form=form)
+    return render_template('login.html', title='login', form=form)
 
 
